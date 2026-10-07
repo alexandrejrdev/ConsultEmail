@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Suporte — Hospedagem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topbar">
+    <button class="topbtn" id="sidebarToggleBtn" title="Esconder/mostrar menu lateral">☰</button>
+    <div class="brand">
+      <div class="mark">H</div>
+      <div>
+        <div class="title">Central de Suporte — Hospedagem</div>
+        <div class="sub">Consulta rápida · Diagnóstico guiado · N1 / N2</div>
+      </div>
+    </div>
+    <div class="searchwrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A90A6" stroke-width="2">
+        <circle cx="11" cy="11" r="7" />
+        <path d="M21 21l-4.3-4.3" />
+      </svg>
+      <input id="searchInput" type="text"
+        placeholder="Buscar: SPF, CPHulk, telnet, blacklist, PTR, expiração de domínio…" autocomplete="off">
+    </div>
+    <div class="resultcount" id="resultCount"></div>
+    <button class="topbtn" id="themeToggleBtn" title="Alternar modo claro/escuro">🌙</button>
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar">
+      <div class="label">Diagnóstico</div>
+      <button class="navbtn flowbtn" data-cat="flow"><span class="dot"></span>Diagnóstico guiado</button>
+      <button class="navbtn flowbtn" id="practicesNavBtn" data-cat="practices">
+        <span class="dot"></span>Boas práticas
+      </button>
+      <button class="navbtn flowbtn" id="phrasesNavBtn" data-cat="phrases">
+        <span class="dot"></span>Frases prontas
+      </button>
+
+      <div class="label" style="margin-top:14px;">Estudo e pesquisa</div>
+      <button class="navbtn flowbtn" id="researchNavBtn" data-cat="research">
+        <span class="dot"></span>Pesquisar (ChatGPT / Google)
+      </button>
+
+      <div class="label" style="margin-top:14px;">Consultas</div>
+      <button class="navbtn flowbtn" id="lookupNavBtn" data-cat="lookup">
+        <span class="dot"></span>Consulta via nslookup
+      </button>
+
+      <div class="label" style="margin-top:14px;">Anotações</div>
+      <button class="navbtn flowbtn" id="notesNavBtn" data-cat="notes">
+        <span class="dot"></span>Anotações
+      </button>
+
+      <div class="label" style="margin-top:14px;">Base de consulta</div>
+      <button class="navbtn active" data-cat="all"><span class="dot"></span>Tudo</button>
+      <button class="navbtn" data-cat="domain"><span class="dot"></span>Domínio &amp; contrato</button>
+      <button class="navbtn" data-cat="dns"><span class="dot"></span>DNS &amp; apontamentos</button>
+      <button class="navbtn" data-cat="email-config"><span class="dot"></span>Configurar e-mail (MX/SPF/DKIM)</button>
+      <button class="navbtn" data-cat="email-panel"><span class="dot"></span>Painéis de e-mail</button>
+      <button class="navbtn" data-cat="email-block"><span class="dot"></span>Bloqueios &amp; blacklist</button>
+      <button class="navbtn" data-cat="site"><span class="dot"></span>Hospedagem de site</button>
+    </nav>
+
+    <main>
+      <div class="pagehead" id="pagehead">
+        <h1>Base de consulta</h1>
+        <p>Clique em uma categoria à esquerda ou busque por um termo. Baseado no procedimento interno de hospedagem.</p>
+      </div>
+
+      <div id="flowArea" style="display:none;"></div>
+      <div id="lookupArea" style="display:none;"><!-- nslookup mode --></div>
+      <div id="practicesArea" style="display:none;"></div>
+      <div id="phrasesArea" style="display:none;"></div>
+      <div id="notesArea" style="display:none;"></div>
+      <div id="researchArea" style="display:none;"></div>
+      <div id="cardArea" class="grid"></div>
+      <div id="emptyState" class="empty" style="display:none;">
+        <div class="big">Nada encontrado</div>
+        <div>Tente outro termo — ex: "SPF", "telnet", "CPHulk", "backup", "WordPress".</div>
+      </div>
+
+      <footer class="note">Conteúdo baseado no documento interno "Serviços de Hospedagem". Casos fora do padrão devem
+        ser escalados para a equipe de Serviços.</footer>
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox"><img id="lightboxImg" src=""></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
